@@ -217,12 +217,12 @@
     >
 flowchart TB
     FANS["Fans / Buyers"]
-    ENTRY["Choose Content to Unlock\nbuying content, premium media, access, events"]
+    ENTRY["Choose Content to Unlock\nbuying content,\npremium media, access, events"]
 
     %% CONTENT NETWORKS (equal peers)
-    VASSAL["Vassal Benford Content Network\nCertifyd ID / Certifyd Content"]
-    BBK["B.B. King Content Network\nCertifyd ID / Certifyd Content\nrights-controlled participation"]
-    OTHER["Other Creator-Owned Content Networks\nCertifyd ID / Certifyd Content"]
+    VASSAL["Vassal Benford\nContent Network\nCertifyd ID / Certifyd Content"]
+    BBK["B.B. King\nContent Network\nCertifyd ID / Certifyd Content\nrights-controlled participation"]
+    OTHER["Other Creator-Owned\nContent Networks\nCertifyd ID / Certifyd Content"]
 
     %% WEB SURFACES
     VURLS["Vassal Benford Web Surfaces\nvassalbenford.com\nthebenfordcompany.com\nbenfordjazz.com"]
@@ -230,8 +230,8 @@ flowchart TB
     OURLS["Creator-Owned Web Surfaces\ncreator websites\ncreator profiles\ncampaign pages"]
 
     %% SERVICE LAYER NODE
-    NODE["The Benford Company Certifyd Node\nService Provider\nLightning Infrastructure\nCheckout / Invoicing\nSplit Policy Enforcer (not owned)"]
-    FEE["₿ The Benford Company Node\nService Fee"]
+    NODE["The Benford Company\nCertifyd Node\nService Provider\nLightning Infrastructure\nCheckout / Invoicing\nSplit Policy Enforcer (not owned)"]
+    FEE["₿ The Benford Company\nNode Service Fee"]
 
     %% PAYMENT FLOW
     INVOICE["Lightning Invoice"]
@@ -332,7 +332,7 @@ flowchart TB
       },
       flowchart: {
         curve: 'basis',
-        htmlLabels: true,
+        htmlLabels: false,
         nodeSpacing: 52,
         rankSpacing: 78,
         diagramPadding: 26,
