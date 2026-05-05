@@ -254,6 +254,10 @@ flowchart TB
     PAYOUT["Payout Execution"]
     AUDIT["Certifyd Audit Trail"]
 
+    %% HIGHLIGHTED SERVICE-LAYER BOXES
+    classDef serviceHighlight fill:#1f3550,stroke:#f3c96a,stroke-width:3px,color:#ffffff;
+    class NODE,FEE serviceHighlight;
+
     %% CREATOR FLOW
     CREATORS --> JOIN
     JOIN --> CID
