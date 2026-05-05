@@ -154,6 +154,37 @@
       font-size: .95rem;
     }
     .a11y-list li { margin: 6px 0; }
+    .mobile-flow {
+      display: none;
+      margin-top: 12px;
+      padding: 14px;
+      border: 1px solid rgba(116,146,180,0.45);
+      border-radius: 12px;
+      background: rgba(9,14,22,0.9);
+    }
+    .mobile-flow h2 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .mobile-steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .mobile-steps li {
+      font-size: 1.12rem;
+      line-height: 1.45;
+      color: var(--text);
+      background: rgba(20,31,47,0.75);
+      border: 1px solid rgba(102,128,160,0.4);
+      border-radius: 10px;
+      padding: 12px 12px;
+      text-align: left;
+    }
     @media (prefers-contrast: more) {
       :root {
         --text: #ffffff;
@@ -179,17 +210,14 @@
       .head { gap: 8px; }
       .brand { justify-content: center; }
       .brand img { width: min(220px, 62vw); }
-      h1 { font-size: clamp(1.18rem, 5vw, 1.45rem); text-align: center; }
-      p { text-align: center; font-size: 0.9rem; }
-      .mermaid {
-        min-height: 56vh;
-        padding: 10px;
-        overflow-x: auto;
-        justify-content: flex-start;
-      }
-      .mermaid svg{
-        min-width: 1120px;
-      }
+      h1 { font-size: clamp(1.35rem, 5.4vw, 1.7rem); text-align: center; }
+      p { text-align: center; font-size: 1rem; line-height: 1.5; }
+      .mobile-flow { display: block; }
+      .mermaid { display: none; }
+      .footer { display: none; }
+      .a11y-panel h2 { font-size: 1.25rem; }
+      .a11y-panel p { font-size: 1.05rem; }
+      .a11y-list { font-size: 1.08rem; line-height: 1.62; }
     }
   </style>
 </head>
@@ -208,6 +236,18 @@
         <p>Fans can buy across Certifyd content networks. Creators can publish through independent networks with optional shared commerce services.</p>
       </div>
     </div>
+
+    <section class="mobile-flow" aria-label="Large text mobile flow">
+      <h2>Large Text Flow (Mobile)</h2>
+      <ol class="mobile-steps">
+        <li>Fans and buyers choose content to unlock.</li>
+        <li>They buy through Vassal Benford, B.B. King, or other creator-owned content networks.</li>
+        <li>Each network can optionally connect to The Benford Company Certifyd Node for commerce services.</li>
+        <li>The node provides Lightning checkout, invoicing, and split policy enforcement.</li>
+        <li>Service fee is applied, invoice is paid, content unlocks instantly.</li>
+        <li>Split is enforced, payouts execute, and Certifyd writes the audit trail.</li>
+      </ol>
+    </section>
 
     <div
       class="mermaid"
