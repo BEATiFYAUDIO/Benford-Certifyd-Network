@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Benford Company Certifyd Network Genesis</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #121922;
+      --text: #e6edf3;
+      --muted: #9fb0c3;
+      --accent: #3ea6ff;
+      --border: #273445;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at 20% 10%, #152338, var(--bg) 42%);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .wrap {
+      width: min(1400px, 100%);
+      background: color-mix(in oklab, var(--panel) 92%, black);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.4);
+      padding: 24px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+    }
+    p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+    .mermaid {
+      background: #0d141d;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      overflow: auto;
+    }
+    .footer {
+      margin-top: 14px;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>The Benford Company Certifyd Network Genesis</h1>
+    <p>Buyer-to-settlement flow across Vassal Benford and B.B. King content networks.</p>
+
+    <div class="mermaid">
+flowchart TB
+    FANS["Fans / Buyers"]
+
+    ENTRY["Choose Content to Unlock\nbuying content, premium media, access, events"]
+
+    %% CONTENT NETWORKS
+    VASSAL["Vassal Benford Content Network\nCertifyd ID / Certifyd Content"]
+
+    BBK["B.B. King Content Network\nCertifyd ID / Certifyd Content"]
+
+    %% URL SURFACES
+    VURLS["Benford Web Surfaces\nvassalbenford.com\nthebenfordcompany.com\nbenfordjazz.com"]
+
+    BURLS["B.B. King Web Surface\nbbking.com"]
+
+    %% NODE
+    NODE["The Benford Company Certifyd Node\nService Provider\nLightning Infrastructure\nCheckout / Invoicing\nSplit Policy Enforcer (not owned)"]
+
+    %% FEE (UPDATED)
+    FEE["The Benford Company Node Service Fee"]
+
+    %% PAYMENT FLOW
+    INVOICE["Lightning Invoice"]
+    PAID["Payment Confirmed"]
+
+    %% UX
+    UNLOCK["Content Unlock\ninstant access"]
+
+    %% SETTLEMENT
+    SPLIT["Split Applied\npolicy enforced"]
+
+    PAYOUT["Payout Execution"]
+    AUDIT["Certifyd Audit Trail"]
+
+    %% FLOW
+    FANS --> ENTRY
+
+    ENTRY --> VASSAL
+    ENTRY --> BBK
+
+    VASSAL --> VURLS
+    BBK --> BURLS
+
+    VURLS <--> NODE
+    BURLS <--> NODE
+
+    NODE --> FEE
+    FEE --> INVOICE
+    INVOICE --> PAID
+
+    PAID --> UNLOCK
+    PAID --> SPLIT
+
+    SPLIT --> PAYOUT
+    PAYOUT --> AUDIT
+    </div>
+
+    <div class="footer">Rendered with Mermaid.js</div>
+  </main>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      securityLevel: 'loose',
+      flowchart: {
+        curve: 'basis',
+        htmlLabels: true,
+        nodeSpacing: 40,
+        rankSpacing: 60
+      }
+    });
+  </script>
+</body>
+</html>
