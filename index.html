@@ -36,6 +36,17 @@
       margin: 0 0 8px;
       font-size: clamp(1.4rem, 2.2vw, 2rem);
     }
+    .brand {
+      display: flex;
+      justify-content: center;
+      margin: 4px 0 8px;
+    }
+    .brand img {
+      width: min(300px, 72vw);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,.45));
+    }
     p {
       margin: 0 0 18px;
       color: var(--muted);
@@ -57,6 +68,12 @@
 </head>
 <body>
   <main class="wrap">
+    <div class="brand">
+      <img
+        src="https://raw.githubusercontent.com/BEATiFYAUDIO/certifyd-me-site/main/screenshots/logo-lockup.png"
+        alt="Certifyd"
+      />
+    </div>
     <h1>The Benford Company Certifyd Network Genesis</h1>
     <p>Buyer-to-settlement flow across Vassal Benford and B.B. King content networks.</p>
 
