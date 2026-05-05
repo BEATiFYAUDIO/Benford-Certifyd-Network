@@ -188,7 +188,7 @@
         justify-content: flex-start;
       }
       .mermaid svg{
-        min-width: 760px;
+        min-width: 1120px;
       }
     }
   </style>
@@ -337,8 +337,22 @@ flowchart TB
         rankSpacing: 78,
         diagramPadding: 26,
         useMaxWidth: true
-      }
+      },
+      responsive: true
     });
+
+    function scaleMobileDiagram() {
+      const isMobile = window.matchMedia('(max-width: 820px)').matches;
+      const root = document.querySelector('.mermaid svg');
+      if (!root) return;
+      root.style.transformOrigin = 'top left';
+      root.style.transform = isMobile ? 'scale(1.35)' : 'scale(1)';
+      if (isMobile) {
+        root.style.marginBottom = '220px';
+      }
+    }
+    window.addEventListener('load', scaleMobileDiagram);
+    window.addEventListener('resize', scaleMobileDiagram);
   </script>
 </body>
 </html>
