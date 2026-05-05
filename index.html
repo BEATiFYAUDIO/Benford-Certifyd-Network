@@ -212,100 +212,92 @@
     <div
       class="mermaid"
       role="img"
-      aria-label="Flowchart showing fan purchase journey from content selection through Lightning payment, split application, payout execution, and Certifyd audit trail."
+      aria-label="Flowchart showing fan entry into multiple independent Certifyd content networks, optional commerce service connection to The Benford Company Certifyd Node, and Lightning settlement to audit."
       aria-describedby="flow-desc"
     >
 flowchart TB
-    CREATORS["Creators / Artists / Collaborators"]
-    JOIN["Apply or Join the Certifyd Network"]
-    CID["Certifyd ID Issued"]
-    PUBLISH["Publish / Attach Content"]
-
     FANS["Fans / Buyers"]
-
     ENTRY["Choose Content to Unlock\nbuying content, premium media, access, events"]
 
-    %% CONTENT NETWORKS
+    %% CONTENT NETWORKS (equal peers)
     VASSAL["Vassal Benford Content Network\nCertifyd ID / Certifyd Content"]
+    BBK["B.B. King Content Network\nCertifyd ID / Certifyd Content\nrights-controlled participation"]
+    OTHER["Other Creator-Owned Content Networks\nCertifyd ID / Certifyd Content"]
 
-    BBK["B.B. King Content Network\nCertifyd ID / Certifyd Content"]
-
-    %% URL SURFACES
-    VURLS["Benford Web Surfaces\nvassalbenford.com\nthebenfordcompany.com\nbenfordjazz.com"]
-
+    %% WEB SURFACES
+    VURLS["Vassal Benford Web Surfaces\nvassalbenford.com\nthebenfordcompany.com\nbenfordjazz.com"]
     BURLS["B.B. King Web Surface\nbbking.com"]
+    OURLS["Creator-Owned Web Surfaces\ncreator websites\ncreator profiles\ncampaign pages"]
 
-    %% NODE
+    %% SERVICE LAYER NODE
     NODE["The Benford Company Certifyd Node\nService Provider\nLightning Infrastructure\nCheckout / Invoicing\nSplit Policy Enforcer (not owned)"]
-
-    %% FEE (UPDATED)
     FEE["₿ The Benford Company Node Service Fee"]
 
     %% PAYMENT FLOW
     INVOICE["Lightning Invoice"]
     PAID["Payment Confirmed"]
-
-    %% UX
     UNLOCK["Content Unlock\ninstant access"]
-
-    %% SETTLEMENT
     SPLIT["Split Applied\npolicy enforced"]
-
     PAYOUT["Payout Execution"]
     AUDIT["Certifyd Audit Trail"]
 
-    %% HIGHLIGHTED SERVICE-LAYER BOXES
+    %% STYLES
     classDef serviceHighlight fill:#1f3550,stroke:#f3c96a,stroke-width:3px,color:#ffffff;
     class NODE,FEE serviceHighlight;
+    linkStyle 8,9,10 stroke:#f3c96a,stroke-width:2px,color:#f3c96a;
 
-    %% CREATOR FLOW
-    CREATORS --> JOIN
-    JOIN --> CID
-    CID --> PUBLISH
-    PUBLISH --> VASSAL
-    PUBLISH --> BBK
-
-    %% FLOW
+    %% FAN ENTRY
     FANS --> ENTRY
-
     ENTRY --> VASSAL
     ENTRY --> BBK
+    ENTRY --> OTHER
 
+    %% NETWORK TO SURFACE
     VASSAL --> VURLS
     BBK --> BURLS
+    OTHER --> OURLS
 
-    VURLS <--> NODE
-    BURLS <--> NODE
+    %% OPTIONAL COMMERCE SERVICE CONNECTION
+    VURLS -->|Optional Commerce Service Connection| NODE
+    BURLS -->|Optional Commerce Service Connection| NODE
+    OURLS -->|Optional Commerce Service Connection| NODE
 
+    %% PAYMENT + SETTLEMENT
     NODE --> FEE
     FEE --> INVOICE
     INVOICE --> PAID
-
     PAID --> UNLOCK
     PAID --> SPLIT
-
     SPLIT --> PAYOUT
     PAYOUT --> AUDIT
     </div>
     <p id="flow-desc" class="sr-only">
-      Fans choose content from Vassal Benford or B.B. King networks, route through The Benford Company Certifyd node, pay a Lightning invoice, unlock content, apply split policy, execute payouts, and write an audit trail.
+      Fans enter through content unlock and choose among Vassal Benford, B.B. King, or other creator-owned content networks. Each network connects to its own web surfaces and can optionally connect to The Benford Company Certifyd Node for commerce services. The node handles Lightning checkout, invoicing, split policy enforcement, payouts, and audit records.
     </p>
 
     <section id="text-flow" class="a11y-panel" aria-label="Accessible text version of network flow">
       <h2>Accessible Text Flow</h2>
-      <p>This is a readable step-by-step version of the same chart.</p>
       <ol class="a11y-list">
-        <li>Creators, artists, and collaborators can apply or join the Certifyd Network.</li>
-        <li>After onboarding, a Certifyd ID is issued and creators publish or attach content.</li>
-        <li>Creator publishing routes into either the Vassal Benford Content Network or the B.B. King Content Network.</li>
-        <li>Fans and buyers choose content to unlock: premium media, access, and events.</li>
-        <li>The choice routes into either the Vassal Benford Content Network or the B.B. King Content Network.</li>
-        <li>Those networks publish through their web surfaces and connect to The Benford Company Certifyd Node.</li>
-        <li>The node applies a node service fee and creates a Lightning invoice.</li>
-        <li>Once payment is confirmed, content unlock is granted instantly.</li>
-        <li>At the same time, split policy is enforced for settlement.</li>
-        <li>Payout execution runs from split results.</li>
-        <li>Certifyd audit trail records the transaction outcome.</li>
+        <li>Fans and buyers enter the Certifyd Network by choosing content to unlock: premium media, access, or events.</li>
+        <li>They access content through a Content Network such as:
+          <ul class="a11y-list">
+            <li>the Vassal Benford Content Network</li>
+            <li>the B.B. King Content Network</li>
+            <li>or other creator-owned Content Networks</li>
+          </ul>
+        </li>
+        <li>Creators, artists, and collaborators operate their own Content Networks.</li>
+        <li>Each creator maintains their own identity and publishes content through their own Certifyd ID and web surfaces.</li>
+        <li>Creators may choose to connect their Content Network to The Benford Company Certifyd Node for commerce services.</li>
+        <li>The Benford Company Certifyd Node acts as a service provider. It offers Lightning infrastructure, checkout, invoicing, and split policy enforcement.</li>
+        <li>The Benford Company Node Service Fee is applied at the service layer.</li>
+        <li>When a purchase is made, the node creates a Lightning invoice.</li>
+        <li>Once payment is confirmed, the buyer receives instant content unlock.</li>
+        <li>At the same time, the defined split policy is enforced for settlement.</li>
+        <li>Payout execution runs from the split results.</li>
+        <li>The Certifyd audit trail records the transaction outcome.</li>
+        <li>In the case of B.B. King content, rights and participation are controlled by the estate. Creators may participate only where authorized.</li>
+        <li>The system allows independent creator networks to operate freely, while optionally using shared commerce infrastructure.</li>
       </ol>
     </section>
 
