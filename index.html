@@ -216,6 +216,11 @@
       aria-describedby="flow-desc"
     >
 flowchart TB
+    CREATORS["Creators / Artists / Collaborators"]
+    JOIN["Apply or Join the Certifyd Network"]
+    CID["Certifyd ID Issued"]
+    PUBLISH["Publish / Attach Content"]
+
     FANS["Fans / Buyers"]
 
     ENTRY["Choose Content to Unlock\nbuying content, premium media, access, events"]
@@ -249,6 +254,13 @@ flowchart TB
     PAYOUT["Payout Execution"]
     AUDIT["Certifyd Audit Trail"]
 
+    %% CREATOR FLOW
+    CREATORS --> JOIN
+    JOIN --> CID
+    CID --> PUBLISH
+    PUBLISH --> VASSAL
+    PUBLISH --> BBK
+
     %% FLOW
     FANS --> ENTRY
 
@@ -279,6 +291,9 @@ flowchart TB
       <h2>Accessible Text Flow</h2>
       <p>This is a readable step-by-step version of the same chart.</p>
       <ol class="a11y-list">
+        <li>Creators, artists, and collaborators can apply or join the Certifyd Network.</li>
+        <li>After onboarding, a Certifyd ID is issued and creators publish or attach content.</li>
+        <li>Creator publishing routes into either the Vassal Benford Content Network or the B.B. King Content Network.</li>
         <li>Fans and buyers choose content to unlock: premium media, access, and events.</li>
         <li>The choice routes into either the Vassal Benford Content Network or the B.B. King Content Network.</li>
         <li>Those networks publish through their web surfaces and connect to The Benford Company Certifyd Node.</li>
@@ -288,6 +303,14 @@ flowchart TB
         <li>Payout execution runs from split results.</li>
         <li>Certifyd audit trail records the transaction outcome.</li>
       </ol>
+    </section>
+
+    <section class="a11y-panel" aria-label="Diagram caption">
+      <p>
+        “The Benford Company Network supports both sides of the content economy. Fans enter to unlock premium content.
+        Creators enter to publish, collaborate, and monetize through Certifyd IDs. The Benford Company Certifyd Node
+        provides the shared Bitcoin and Lightning commerce layer.”
+      </p>
     </section>
 
     <div class="footer">Rendered with Mermaid.js</div>
